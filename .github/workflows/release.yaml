@@ -1,0 +1,50 @@
+# This workflow kicks off the releases a new version of booz-allen-licenses and deploys artifacts to Maven Central.
+
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: Release Booz Allen Licenses
+
+on:
+    workflow_dispatch:
+        inputs:
+            releaseVersion:
+                description: "Release version"
+                required: true
+            developmentVersion:
+                description: "Next development version"
+                required: true
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Check out code
+              uses: actions/checkout@v4
+            - name: Set up JDK 11
+              uses: actions/setup-java@v4
+              with:
+                  java-version: '11'
+                  distribution: 'temurin'
+                  cache: maven
+                  server-id: 'ossrh'
+                  server-username: MAVEN_USERNAME
+                  server-password: MAVEN_PASSWORD
+                  gpg-private-key: ${{ secrets.GPG_PRIVATE_KEY }}
+                  gpg-passphrase: GPG_PASSPHRASE
+            - name: Release aiSSEMBLE Parent
+              run: |
+                  git config --local user.email "aissemble-noreply@bah.com"
+                  git config --local user.name "Github Actions"
+                  git checkout -b ${{ inputs.releaseVersion }}-release
+                  mvn -B release:clean release:prepare release:perform -Possrh-release -DreleaseVersion=${{ inputs.releaseVersion }} -DdevelopmentVersion=${{ inputs.developmentVersion }} -Darguments="-Dhabushu.usePyenv=false"
+                  mvn release:update-versions -DdevelopmentVersion=${{ inputs.developmentVersion }}
+                  mvn clean install
+                  mvn scm:checkin -Dmessage=":arrow_up: push example modules to version ${{ inputs.developmentVersion }}"
+              env:
+                  MAVEN_USERNAME: ${{ secrets.SONATYPE_CENTRAL_REPO_TOKEN_USER }}
+                  MAVEN_PASSWORD: ${{ secrets.SONATYPE_CENTRAL_REPO_TOKEN_KEY }}
+                  GPG_PASSPHRASE: ${{ secrets.GPG_PRIVATE_KEY_PASSPHRASE }}
