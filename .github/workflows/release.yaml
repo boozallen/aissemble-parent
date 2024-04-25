@@ -5,7 +5,7 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Release Booz Allen Licenses
+name: Release Booz Allen aiSSEMBLE Parent
 
 on:
     workflow_dispatch:
@@ -40,7 +40,7 @@ jobs:
                   git config --local user.email "aissemble-noreply@bah.com"
                   git config --local user.name "Github Actions"
                   git checkout -b ${{ inputs.releaseVersion }}-release
-                  mvn -B release:clean release:prepare release:perform -Possrh-release -DreleaseVersion=${{ inputs.releaseVersion }} -DdevelopmentVersion=${{ inputs.developmentVersion }} -Darguments="-Dhabushu.usePyenv=false"
+                  mvn -B release:clean release:prepare release:perform -Possrh-release -DreleaseVersion=${{ inputs.releaseVersion }} -DdevelopmentVersion=${{ inputs.developmentVersion }}
                   mvn release:update-versions -DdevelopmentVersion=${{ inputs.developmentVersion }}
                   mvn clean install
                   mvn scm:checkin -Dmessage=":arrow_up: push example modules to version ${{ inputs.developmentVersion }}"

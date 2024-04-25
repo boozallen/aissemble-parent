@@ -200,6 +200,46 @@
                         <autoReleaseAfterClose>true</autoReleaseAfterClose>
                     </configuration>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>license-maven-plugin</artifactId>
+                    <configuration>
+                        <licenseName>booz-allen-public-license</licenseName>
+                        <licenseResolver>classpath://com/boozallen</licenseResolver>
+                        <excludes>
+                            <exclude>**/*.json</exclude>
+                        </excludes>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>update-file-header</id>
+                            <goals>
+                                <goal>update-file-header</goal>
+                            </goals>
+                            <phase>process-sources</phase>
+                            <configuration>
+                                <canUpdateCopyright>true</canUpdateCopyright>
+                                <ignoreLastDate>true</ignoreLastDate>
+                            </configuration>
+                        </execution>
+                        <execution>
+                            <id>update-project-license</id>
+                            <goals>
+                                <goal>update-project-license</goal>
+                            </goals>
+                            <configuration>
+                                <force>true</force>
+                            </configuration>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.boozallen.aissemble</groupId>
+                            <artifactId>booz-allen-licenses</artifactId>
+                            <version>1.2.0</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
             </plugins>
         </pluginManagement>
         <plugins>
