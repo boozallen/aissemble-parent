@@ -40,10 +40,7 @@ jobs:
                   git config --local user.email "aissemble-noreply@bah.com"
                   git config --local user.name "Github Actions"
                   git checkout -b ${{ inputs.releaseVersion }}-release
-                  mvn -B release:clean release:prepare release:perform -Possrh-release -DreleaseVersion=${{ inputs.releaseVersion }} -DdevelopmentVersion=${{ inputs.developmentVersion }}
-                  mvn release:update-versions -DdevelopmentVersion=${{ inputs.developmentVersion }}
-                  mvn clean install
-                  mvn scm:checkin -Dmessage=":arrow_up: push example modules to version ${{ inputs.developmentVersion }}"
+                  mvn -B release:prepare release:perform -Possrh-release -DreleaseVersion=${{ inputs.releaseVersion }} -DdevelopmentVersion=${{ inputs.developmentVersion }}
               env:
                   MAVEN_USERNAME: ${{ secrets.SONATYPE_CENTRAL_REPO_TOKEN_USER }}
                   MAVEN_PASSWORD: ${{ secrets.SONATYPE_CENTRAL_REPO_TOKEN_KEY }}
