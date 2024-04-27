@@ -37,8 +37,7 @@ jobs:
                   gpg-passphrase: GPG_PASSPHRASE
             - name: Release aiSSEMBLE Parent
               run: |
-                  GPG_TTY=$(tty)
-                  export GPG_TTY
+                  export GPG_TTY=$(tty)
                   git config --local user.email "aissemble-noreply@bah.com"
                   git config --local user.name "Github Actions"
                   git checkout -b ${{ inputs.releaseVersion }}-release
