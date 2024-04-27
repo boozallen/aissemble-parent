@@ -37,11 +37,10 @@ jobs:
                   gpg-passphrase: GPG_PASSPHRASE
             - name: Release aiSSEMBLE Parent
               run: |
-                  export GPG_TTY=$(tty)
                   git config --local user.email "aissemble-noreply@bah.com"
                   git config --local user.name "Github Actions"
                   git checkout -b ${{ inputs.releaseVersion }}-release
-                  mvn -B release:prepare release:perform -Possrh-release -DreleaseVersion=${{ inputs.releaseVersion }} -DdevelopmentVersion=${{ inputs.developmentVersion }}
+                  mvn -B release:prepare release:perform -Possrh-release -DreleaseVersion=${{ inputs.releaseVersion }} -DdevelopmentVersion=${{ inputs.developmentVersion }} -X
               env:
                   MAVEN_USERNAME: ${{ secrets.SONATYPE_CENTRAL_REPO_TOKEN_USER }}
                   MAVEN_PASSWORD: ${{ secrets.SONATYPE_CENTRAL_REPO_TOKEN_KEY }}
