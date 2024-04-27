@@ -4,7 +4,7 @@
 
     <groupId>com.boozallen.aissemble</groupId>
     <artifactId>aissemble-parent</artifactId>
-    <version>2-SNAPSHOT</version>
+    <version>2</version>
 
     <packaging>pom</packaging>
 
@@ -22,7 +22,7 @@
         <connection>scm:git:https://github.com/boozallen/aissemble-parent.git</connection>
         <developerConnection>scm:git:https://github.com/boozallen/aissemble-parent.git</developerConnection>
         <url>https://github.com/boozallen/aissemble-parent</url>
-        <tag>HEAD</tag>
+        <tag>aissemble-parent-2</tag>
     </scm>
 
     <distributionManagement>
