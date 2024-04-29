@@ -1,4 +1,4 @@
-# This workflow kicks off the releases a new version of booz-allen-licenses and deploys artifacts to Maven Central.
+# This workflow kicks off the releases a new version of aissemble-parent and deploys artifacts to Maven Central.
 
 # This workflow uses actions that are not certified by GitHub.
 # They are provided by a third-party and are governed by
@@ -40,7 +40,7 @@ jobs:
                   git config --local user.email "aissemble-noreply@bah.com"
                   git config --local user.name "Github Actions"
                   git checkout -b ${{ inputs.releaseVersion }}-release
-                  mvn -B release:prepare release:perform -Possrh-release -DreleaseVersion=${{ inputs.releaseVersion }} -DdevelopmentVersion=${{ inputs.developmentVersion }} -X
+                  mvn -B release:prepare release:perform -Possrh-release -DreleaseVersion=${{ inputs.releaseVersion }} -DdevelopmentVersion=${{ inputs.developmentVersion }}
               env:
                   MAVEN_USERNAME: ${{ secrets.SONATYPE_CENTRAL_REPO_TOKEN_USER }}
                   MAVEN_PASSWORD: ${{ secrets.SONATYPE_CENTRAL_REPO_TOKEN_KEY }}
