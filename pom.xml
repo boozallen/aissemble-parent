@@ -64,20 +64,21 @@
         <maven.compiler.release>11</maven.compiler.release>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <version.license.plugin>2.4.0</version.license.plugin>
         <version.maven.clean.plugin>3.3.2</version.maven.clean.plugin>
         <version.maven.compiler.plugin>3.13.0</version.maven.compiler.plugin>
-        <version.maven.dependency.plugin>3.1.1</version.maven.dependency.plugin>
-        <version.maven.deploy.plugin>3.1.1</version.maven.deploy.plugin>
+        <version.maven.dependency.plugin>3.6.1</version.maven.dependency.plugin>
+        <version.maven.deploy.plugin>3.1.2</version.maven.deploy.plugin>
         <version.maven.enforcer.plugin>3.4.1</version.maven.enforcer.plugin>
-        <version.maven.gpg.plugin>3.2.2</version.maven.gpg.plugin>
-        <version.maven.install.plugin>3.1.1</version.maven.install.plugin>
-        <version.maven.javadoc.plugin>3.1.1</version.maven.javadoc.plugin>
-        <version.maven.jar.plugin>3.3.0</version.maven.jar.plugin>
+        <version.maven.gpg.plugin>3.2.4</version.maven.gpg.plugin>
+        <version.maven.install.plugin>3.1.2</version.maven.install.plugin>
+        <version.maven.javadoc.plugin>3.6.3</version.maven.javadoc.plugin>
+        <version.maven.jar.plugin>3.4.1</version.maven.jar.plugin>
         <version.maven.release.plugin>3.0.1</version.maven.release.plugin>
         <version.maven.resources.plugin>3.3.1</version.maven.resources.plugin>
         <version.maven.site.plugin>4.0.0-M13</version.maven.site.plugin>
-        <version.maven.source.plugin>3.3.0</version.maven.source.plugin>
-        <version.maven.surefire.plugin>3.1.2</version.maven.surefire.plugin>
+        <version.maven.source.plugin>3.3.1</version.maven.source.plugin>
+        <version.maven.surefire.plugin>3.2.5</version.maven.surefire.plugin>
         <version.nexus.staging.plugin>1.6.13</version.nexus.staging.plugin>
         <version.python.default>3.11.4</version.python.default>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -204,6 +205,7 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>license-maven-plugin</artifactId>
+                    <version>${version.license.plugin}</version>
                     <configuration>
                         <licenseName>booz-allen-public-license</licenseName>
                         <licenseResolver>classpath://com/boozallen</licenseResolver>
@@ -250,6 +252,15 @@
             </plugin>
         </plugins>
     </build>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>${version.maven.dependency.plugin}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <profiles>
         <profile>
