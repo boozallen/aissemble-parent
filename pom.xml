@@ -4,7 +4,7 @@
 
     <groupId>com.boozallen.aissemble</groupId>
     <artifactId>aissemble-parent</artifactId>
-    <version>3-SNAPSHOT</version>
+    <version>4-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
