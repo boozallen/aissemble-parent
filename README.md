@@ -3,5 +3,5 @@
 
 # aissemble-parent
 
-This project contains a common build parent pom.xml file for aiSSEMBLE projects.  
+This project contains a common build parent pom.xml file for aiSSEMBLE projects.
 The main project this build parent supports is [aissemble](https://github.com/boozallen/aissemble)
