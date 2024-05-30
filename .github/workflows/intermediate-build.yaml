@@ -13,7 +13,7 @@ on:
     branches: [ "3-workflow-build" ]
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: arc-runner-set
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 11
@@ -22,5 +22,14 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
+      - name: Download Maven
+        run: |
+          curl -sL https://www-eu.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip -o maven.zip
+          apt-get update
+          apt-get -y install unzip
+          unzip -d /usr/share maven.zip
+          rm maven.zip
+          ln -s /usr/share/apache-maven-3.6.3/bin/mvn /usr/bin/mvn
+          echo "M2_HOME=/usr/share/apache-maven-3.6.3" | tee -a /etc/environment
       - name: Build aissemble-parent
         run: mvn dependency:tree
