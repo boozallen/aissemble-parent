@@ -22,6 +22,8 @@ jobs:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
+      - name: Download curl
+        run: apt update -y && apt install curl unzip -y
       - name: Download Maven
         run: |
           curl -sL https://www-eu.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.zip -o maven.zip
