@@ -64,7 +64,8 @@
         <maven.compiler.release>17</maven.compiler.release>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <version.license.plugin>2.4.0</version.license.plugin>
+        <version.license.plugin>2.5.0</version.license.plugin>
+        <version.boozallen.license>1.3.0</version.boozallen.license>
         <version.maven.clean.plugin>3.4.0</version.maven.clean.plugin>
         <version.maven.compiler.plugin>3.13.0</version.maven.compiler.plugin>
         <version.maven.dependency.plugin>3.6.1</version.maven.dependency.plugin>
@@ -239,7 +240,7 @@
                         <dependency>
                             <groupId>com.boozallen.aissemble</groupId>
                             <artifactId>booz-allen-licenses</artifactId>
-                            <version>1.2.0</version>
+                            <version>${version.boozallen.license}</version>
                         </dependency>
                     </dependencies>
                 </plugin>
