@@ -53,23 +53,23 @@
         <maven.compiler.release>17</maven.compiler.release>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <version.license.plugin>2.5.0</version.license.plugin>
+        <version.license.plugin>2.6.0</version.license.plugin>
         <version.boozallen.license>1.3.0</version.boozallen.license>
         <version.central.publishing.plugin>0.8.0</version.central.publishing.plugin>
-        <version.maven.clean.plugin>3.4.0</version.maven.clean.plugin>
-        <version.maven.compiler.plugin>3.13.0</version.maven.compiler.plugin>
-        <version.maven.dependency.plugin>3.6.1</version.maven.dependency.plugin>
-        <version.maven.deploy.plugin>3.1.3</version.maven.deploy.plugin>
+        <version.maven.clean.plugin>3.5.0</version.maven.clean.plugin>
+        <version.maven.compiler.plugin>3.14.0</version.maven.compiler.plugin>
+        <version.maven.dependency.plugin>3.8.1</version.maven.dependency.plugin>
+        <version.maven.deploy.plugin>3.1.4</version.maven.deploy.plugin>
         <version.maven.enforcer.plugin>3.5.0</version.maven.enforcer.plugin>
-        <version.maven.gpg.plugin>3.2.6</version.maven.gpg.plugin>
-        <version.maven.install.plugin>3.1.3</version.maven.install.plugin>
-        <version.maven.javadoc.plugin>3.10.0</version.maven.javadoc.plugin>
+        <version.maven.gpg.plugin>3.2.7</version.maven.gpg.plugin>
+        <version.maven.install.plugin>3.1.4</version.maven.install.plugin>
+        <version.maven.javadoc.plugin>3.11.2</version.maven.javadoc.plugin>
         <version.maven.jar.plugin>3.4.2</version.maven.jar.plugin>
         <version.maven.release.plugin>3.1.1</version.maven.release.plugin>
         <version.maven.resources.plugin>3.3.1</version.maven.resources.plugin>
         <version.maven.site.plugin>4.0.0-M16</version.maven.site.plugin>
         <version.maven.source.plugin>3.3.1</version.maven.source.plugin>
-        <version.maven.surefire.plugin>3.5.0</version.maven.surefire.plugin>
+        <version.maven.surefire.plugin>3.5.3</version.maven.surefire.plugin>
         <version.nexus.staging.plugin>1.7.0</version.nexus.staging.plugin>
         <version.python.default>3.11.4</version.python.default>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
