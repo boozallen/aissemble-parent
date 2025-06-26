@@ -184,6 +184,7 @@
                     <groupId>org.sonatype.central</groupId>
                     <artifactId>central-publishing-maven-plugin</artifactId>
                     <version>${version.central.publishing.plugin}</version>
+                    <extensions>true</extensions>
                     <configuration>
                         <publishingServerId>central</publishingServerId>
                         <autoPublish>true</autoPublish>
@@ -299,6 +300,10 @@
                                 </goals>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.sonatype.central</groupId>
+                        <artifactId>central-publishing-maven-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
