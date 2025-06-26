@@ -25,17 +25,6 @@
         <tag>HEAD</tag>
     </scm>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ghcr.io</id>
-            <url>https://maven.pkg.github.com/boozallen/aissemble-parent</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/releases/</url>
-        </repository>
-    </distributionManagement>
-
     <organization>
         <name>Booz Allen Hamilton Inc.</name>
         <url>https://www.boozallen.com</url>
@@ -66,6 +55,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <version.license.plugin>2.5.0</version.license.plugin>
         <version.boozallen.license>1.3.0</version.boozallen.license>
+        <version.central.publishing.plugin>0.8.0</version.central.publishing.plugin>
         <version.maven.clean.plugin>3.4.0</version.maven.clean.plugin>
         <version.maven.compiler.plugin>3.13.0</version.maven.compiler.plugin>
         <version.maven.dependency.plugin>3.6.1</version.maven.dependency.plugin>
@@ -133,7 +123,7 @@
                     <artifactId>maven-release-plugin</artifactId>
                     <version>${version.maven.release.plugin}</version>
                     <configuration>
-                        <releaseProfiles>ossrh-release</releaseProfiles>
+                        <releaseProfiles>central-release</releaseProfiles>
                         <autoVersionSubmodules>true</autoVersionSubmodules>
                     </configuration>
                 </plugin>
@@ -191,16 +181,14 @@
                     </executions>
                 </plugin>
                 <plugin>
-                    <groupId>org.sonatype.plugins</groupId>
-                    <artifactId>nexus-staging-maven-plugin</artifactId>
-                    <version>${version.nexus.staging.plugin}</version>
+                    <groupId>org.sonatype.central</groupId>
+                    <artifactId>central-publishing-maven-plugin</artifactId>
+                    <version>${version.central.publishing.plugin}</version>
+                    <extensions>true</extensions>
                     <configuration>
-                        <serverId>ossrh</serverId>
-                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                        <!-- Automatically release staging repository and make deployed artifacts available on
-                             Maven Central. This mitigates the need to manually log into the OSSRH Nexus instance
-                             and release the staging repository -->
-                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        <publishingServerId>central</publishingServerId>
+                        <autoPublish>true</autoPublish>
+                        <waitUntil>uploaded</waitUntil>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -265,12 +253,12 @@
 
     <profiles>
         <profile>
-            <id>ossrh-release</id>
+            <id>central-release</id>
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.sonatype.plugins</groupId>
-                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>license-maven-plugin</artifactId>
                         <extensions>true</extensions>
                     </plugin>
                     <plugin>
