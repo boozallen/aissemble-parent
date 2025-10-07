@@ -1,6 +1,6 @@
 [![Maven Central](https://img.shields.io/maven-central/v/com.boozallen.aissemble/aissemble-parent.svg)](https://central.sonatype.com/artifact/com.boozallen.aissemble/aissemble-parent)
 [![Build](https://github.com/boozallen/aissemble-parent/actions/workflows/build.yaml/badge.svg)](https://github.com/boozallen/aissemble-parent/actions/workflows/build.yaml)
-[![License](https://img.shields.io/github/license/boozallen/parent)](https://www.apache.org/licenses/LICENSE-2.0)
+[![License](https://img.shields.io/github/license/boozallen/aissemble-parent)](https://www.apache.org/licenses/LICENSE-2.0)
 
 # aissemble-parent
 
