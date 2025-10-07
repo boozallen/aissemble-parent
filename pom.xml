@@ -42,8 +42,8 @@
 
     <licenses>
         <license>
-            <name>Booz Allen Public License v1.0</name>
-            <url>https://github.com/boozallen/Public-License/blob/master/LICENSE.md</url>
+            <name>Apache License, Version 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -53,7 +53,7 @@
         <maven.compiler.release>17</maven.compiler.release>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <version.license.plugin>2.6.0</version.license.plugin>
+        <version.license.plugin>2.7.0</version.license.plugin>
         <version.boozallen.license>1.3.0</version.boozallen.license>
         <version.central.publishing.plugin>0.8.0</version.central.publishing.plugin>
         <version.maven.clean.plugin>3.5.0</version.maven.clean.plugin>
@@ -196,7 +196,7 @@
                     <artifactId>license-maven-plugin</artifactId>
                     <version>${version.license.plugin}</version>
                     <configuration>
-                        <licenseName>booz-allen-public-license</licenseName>
+                        <licenseName>apache_v2</licenseName>
                         <licenseResolver>classpath://com/boozallen</licenseResolver>
                         <excludes>
                             <exclude>**/*.json</exclude>
